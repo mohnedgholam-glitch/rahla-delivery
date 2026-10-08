@@ -6,12 +6,7 @@
     <title>رحلة - خدمات التوصيل السريعة</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary-color: #FF6B6B;
             --secondary-color: #4ECDC4;
@@ -22,18 +17,16 @@
             --transition: all 0.3s ease;
         }
 
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             overflow-x: hidden;
+            direction: rtl;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
         .navbar {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -41,7 +34,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .navbar .container {
@@ -50,12 +43,7 @@
             align-items: center;
         }
 
-        .logo h1 {
-            color: white;
-            font-size: 1.8rem;
-            margin: 0;
-        }
-
+        .logo h1 { color: white; font-size: 1.8rem; margin: 0; }
         .nav-links {
             display: flex;
             list-style: none;
@@ -66,14 +54,12 @@
             color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: var(--transition);
             padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
         }
 
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: var(--border-radius);
-        }
+        .nav-links a:hover { background: rgba(255,255,255,0.2); }
 
         .menu-toggle {
             display: none;
@@ -89,7 +75,6 @@
             height: 3px;
             background: white;
             border-radius: 2px;
-            transition: var(--transition);
         }
 
         .hero {
@@ -126,21 +111,19 @@
             border-radius: var(--border-radius);
             cursor: pointer;
             font-weight: bold;
-            transition: var(--transition);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
-        .services {
-            padding: 4rem 0;
-            background: var(--light-color);
-        }
+        .services, .booking { background: var(--light-color); padding: 4rem 0; }
+        .about, .contact { background: white; padding: 4rem 0; }
 
-        .services h2 {
+        .services h2, .about h2, .booking h2, .contact h2 {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 1rem;
@@ -165,54 +148,25 @@
             padding: 2rem;
             border-radius: var(--border-radius);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
             text-align: center;
+            transition: var(--transition);
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
-        .service-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
+        .service-icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem; }
         .service-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--dark-color);
         }
 
-        .service-card p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .features {
-            list-style: none;
-            text-align: right;
-        }
-
-        .features li {
-            color: #555;
-            padding: 0.5rem 0;
-            font-size: 0.95rem;
-        }
-
-        .about {
-            padding: 4rem 0;
-            background: white;
-        }
-
-        .about h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--dark-color);
-        }
+        .service-card p { color: #666; margin-bottom: 1.5rem; }
+        .features { list-style: none; text-align: right; }
+        .features li { color: #555; padding: 0.5rem 0; font-size: 0.95rem; }
 
         .about-content {
             display: grid;
@@ -223,20 +177,12 @@
 
         .about-text h3 {
             color: var(--primary-color);
-            margin: 1.5rem 0 1rem 0;
+            margin: 1.5rem 0 1rem;
             font-size: 1.5rem;
         }
 
-        .about-text p {
-            color: #666;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .about-list {
-            list-style: none;
-        }
-
+        .about-text p { color: #666; margin-bottom: 1rem; font-size: 1.1rem; }
+        .about-list { list-style: none; }
         .about-list li {
             color: #555;
             padding: 0.8rem 0;
@@ -245,12 +191,7 @@
             align-items: flex-start;
         }
 
-        .about-list i {
-            color: var(--secondary-color);
-            margin-top: 0.3rem;
-            flex-shrink: 0;
-        }
-
+        .about-list i { color: var(--secondary-color); margin-top: 0.3rem; }
         .about-stats {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -265,32 +206,14 @@
             text-align: center;
         }
 
-        .stat h4 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat p {
-            font-size: 1rem;
-        }
-
-        .booking {
-            padding: 4rem 0;
-            background: var(--light-color);
-        }
-
-        .booking h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark-color);
-        }
+        .stat h4 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .stat p { font-size: 1rem; }
 
         .booking-form {
             background: white;
             padding: 2.5rem;
             border-radius: var(--border-radius);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             margin-top: 2rem;
         }
 
@@ -301,14 +224,8 @@
             margin-bottom: 1.5rem;
         }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group.full-width { grid-column: 1 / -1; }
 
         .form-group label {
             margin-bottom: 0.5rem;
@@ -345,13 +262,13 @@
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .submit-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
         .confirmation-message {
@@ -362,24 +279,10 @@
             border-radius: var(--border-radius);
             text-align: center;
             margin-top: 2rem;
+            display: none;
         }
 
-        .confirmation-message h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-        }
-
-        .contact {
-            padding: 4rem 0;
-            background: white;
-        }
-
-        .contact h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark-color);
-        }
+        .confirmation-message h3 { margin-bottom: 0.5rem; font-size: 1.5rem; }
 
         .contact-grid {
             display: grid;
@@ -393,8 +296,8 @@
             padding: 2rem;
             border-radius: var(--border-radius);
             text-align: center;
-            transition: var(--transition);
             border: 2px solid transparent;
+            transition: var(--transition);
         }
 
         .contact-card:hover {
@@ -414,10 +317,7 @@
             color: var(--dark-color);
         }
 
-        .contact-card p {
-            color: #666;
-            margin: 0.5rem 0;
-        }
+        .contact-card p { color: #666; margin: 0.5rem 0; }
 
         footer {
             background: var(--dark-color);
@@ -432,51 +332,28 @@
             align-items: center;
         }
 
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
+        .social-links { display: flex; gap: 1rem; }
         .social-icon {
             color: white;
             font-size: 1.5rem;
             transition: var(--transition);
         }
 
-        .social-icon:hover {
-            color: var(--primary-color);
-            transform: scale(1.2);
-        }
+        .social-icon:hover { color: var(--primary-color); transform: scale(1.2); }
 
         @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
         @media (max-width: 768px) {
@@ -492,84 +369,27 @@
                 padding: 1rem 0;
                 text-align: center;
             }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .hero-content h2 {
-                font-size: 2rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .hero-image {
-                font-size: 3rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .about-stats {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            footer .container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .services h2,
-            .about h2,
-            .booking h2,
-            .contact h2 {
-                font-size: 2rem;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: flex; }
+            .hero-content h2 { font-size: 2rem; }
+            .hero-content p { font-size: 1rem; }
+            .hero-image { font-size: 3rem; }
+            .about-content { grid-template-columns: 1fr; }
+            .about-stats { grid-template-columns: 1fr 1fr; }
+            footer .container { flex-direction: column; gap: 1rem; }
+            .services h2, .about h2, .booking h2, .contact h2 { font-size: 2rem; }
+            .form-row { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 480px) {
-            .hero-content h2 {
-                font-size: 1.5rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .booking-form {
-                padding: 1.5rem;
-            }
-
-            .nav-links {
-                gap: 0.5rem;
-            }
-
-            .nav-links a {
-                padding: 1rem;
-            }
+            .hero-content h2 { font-size: 1.6rem; }
+            .services-grid, .contact-grid { grid-template-columns: 1fr; }
+            .about-stats { grid-template-columns: 1fr; }
+            .booking-form { padding: 1.3rem; }
         }
     </style>
 </head>
-<body dir="rtl">
+<body>
     <nav class="navbar">
         <div class="container">
             <div class="logo">
@@ -591,13 +411,15 @@
     </nav>
 
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h2>خدمات توصيل سريعة وآمنة</h2>
-            <p>نقل سلس وراحة كاملة لعملائنا الكرام</p>
-            <button class="cta-button" onclick="scrollToBooking()">احجز الآن</button>
-        </div>
-        <div class="hero-image">
-            <i class="fas fa-truck"></i>
+        <div class="container">
+            <div class="hero-content">
+                <h2>خدمات توصيل سريعة وآمنة</h2>
+                <p>نقل سلس وراحة كاملة لعملائنا الكرام</p>
+                <button class="cta-button" onclick="scrollToBooking()">احجز الآن</button>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-truck"></i>
+            </div>
         </div>
     </section>
 
@@ -705,11 +527,8 @@
         <div class="container">
             <h2>احجز خدمتك الآن</h2>
             <p class="section-subtitle">اختر الخدمة المناسبة واستمتع براحة التوصيل السريع</p>
-            
-            <form class="booking-form" id="bookingForm" method="POST" action="https://formspree.io/f/xyzpqabc">
-                <input type="hidden" name="_subject" value="🚀 طلب حجز جديد من موقع رحلة للتوصيل">
-                <input type="hidden" name="_captcha" value="false">
 
+            <form class="booking-form" id="bookingForm">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">اسمك الكامل</label>
@@ -726,12 +545,12 @@
                         <label for="service">نوع الخدمة</label>
                         <select id="service" name="service" required>
                             <option value="">اختر الخدمة</option>
-                            <option value="motorcycle">🏍️ دراجة نارية</option>
-                            <option value="car">🚗 سيارة عادية</option>
-                            <option value="quarter">🚐 ربع نقل</option>
-                            <option value="half">🚛 نص نقل</option>
-                            <option value="heavy">🏗️ نقل ثقيل</option>
-                            <option value="bicycle">🚴 دراجة عادية</option>
+                            <option value="دراجة نارية">🏍️ دراجة نارية</option>
+                            <option value="سيارة عادية">🚗 سيارة عادية</option>
+                            <option value="ربع نقل">🚐 ربع نقل</option>
+                            <option value="نص نقل">🚛 نص نقل</option>
+                            <option value="نقل ثقيل">🏗️ نقل ثقيل</option>
+                            <option value="دراجة عادية">🚴 دراجة عادية</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -761,14 +580,13 @@
                     </div>
                 </div>
 
-                <input type="hidden" name="_next" value="https://yourdomain.com/thank-you">
                 <button type="submit" class="submit-button">تأكيد الحجز</button>
             </form>
 
-            <div id="confirmationMessage" class="confirmation-message" style="display: none;">
+            <div id="confirmationMessage" class="confirmation-message">
                 <h3>✓ تم استلام طلبك بنجاح!</h3>
-                <p>سيتصل بك السائق قريباً جداً</p>
-                <p style="font-size: 0.9rem; margin-top: 0.5rem;">تم إرسال البيانات إلى فريق الدعم</p>
+                <p>تم تجهيز الرسالة بنجاح، والآن سيظهر لك واتساب برسالة الحجز.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">إذا لم يفتح واتساب تلقائيًا، اضغط على زر الواتس في أسفل الصفحة</p>
             </div>
         </div>
     </section>
@@ -782,7 +600,7 @@
                     <i class="fas fa-phone"></i>
                     <h3>الهاتف</h3>
                     <p>📱 01098021426</p>
-                    <p>+20 100 987 6543</p>
+                    <p>+966 500 000 000</p>
                 </div>
 
                 <div class="contact-card">
@@ -813,10 +631,10 @@
         <div class="container">
             <p>&copy; 2024 شركة رحلة. جميع الحقوق محفوظة.</p>
             <div class="social-links">
-                <a href="https://wa.me/201098021426" class="social-icon" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/201098021426" class="social-icon" target="_blank" title="واتساب"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-icon" title="فيسبوك"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon" title="تويتر"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon" title="إنستغرام"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </footer>
@@ -836,14 +654,34 @@
         });
 
         function scrollToBooking() {
-            const bookingSection = document.getElementById('booking');
-            bookingSection.scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
         }
 
-        const bookingForm = document.getElementById('bookingForm');
-        const confirmationMessage = document.getElementById('confirmationMessage');
+        document.getElementById('phone').addEventListener('input', function () {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
 
-        bookingForm.addEventListener('submit', async (e) => {
+        function saveBooking(data) {
+            let bookings = JSON.parse(localStorage.getItem('rahla_bookings') || '[]');
+            bookings.push(data);
+            localStorage.setItem('rahla_bookings', JSON.stringify(bookings));
+        }
+
+        function buildWhatsAppMessage(data) {
+            const text = `🚀 *طلب حجز جديد من رحلة*\n\n` +
+                `👤 *الاسم:* ${data.name}\n` +
+                `📞 *رقم الهاتف:* ${data.phone}\n` +
+                `🚗 *نوع الخدمة:* ${data.service}\n` +
+                `⏰ *الوقت:* ${data.time}\n` +
+                `📍 *من:* ${data.from}\n` +
+                `📍 *إلى:* ${data.to}\n` +
+                `${data.notes ? `📝 *ملاحظات:* ${data.notes}\n` : ''}` +
+                `🕐 *تاريخ الحجز:* ${data.date}`;
+
+            return encodeURIComponent(text);
+        }
+
+        document.getElementById('bookingForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
             const name = document.getElementById('name').value.trim();
@@ -855,11 +693,11 @@
             const notes = document.getElementById('notes').value.trim();
 
             if (!name || !phone || !service || !time || !from || !to) {
-                alert('الرجاء ملء جميع الحقول المطلوبة');
+                alert('الرجاء إكمال جميع الحقول المطلوبة');
                 return;
             }
 
-            const booking = {
+            const bookingData = {
                 name,
                 phone,
                 service,
@@ -867,70 +705,17 @@
                 from,
                 to,
                 notes,
-                timestamp: new Date().toLocaleString('ar-EG')
+                date: new Date().toLocaleString('ar-EG')
             };
 
-            // حفظ البيانات محليًا
-            saveBooking(booking);
+            saveBooking(bookingData);
 
-            // إرسال رسالة واتساب مباشرة
-            sendWhatsAppMessage(booking);
-
-            // إظهار رسالة التأكيد
-            showConfirmation();
-
-            // إعادة تعيين النموذج
-            setTimeout(() => {
-                bookingForm.reset();
-                confirmationMessage.style.display = 'none';
-            }, 5000);
-        });
-
-        function saveBooking(booking) {
-            let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
-            bookings.push(booking);
-            localStorage.setItem('bookings', JSON.stringify(bookings));
-            console.log('✅ تم حفظ الحجز:', booking);
-        }
-
-        function sendWhatsAppMessage(booking) {
-            const serviceNames = {
-                motorcycle: '🏍️ دراجة نارية',
-                car: '🚗 سيارة عادية',
-                quarter: '🚐 ربع نقل',
-                half: '🚛 نص نقل',
-                heavy: '🏗️ نقل ثقيل',
-                bicycle: '🚴 دراجة عادية'
-            };
-
-            const message = `🚀 *طلب حجز جديد من رحلة*
-
-👤 *الاسم:* ${booking.name}
-📞 *الهاتف:* ${booking.phone}
-🚗 *الخدمة:* ${serviceNames[booking.service] || booking.service}
-⏰ *الوقت المفضل:* ${booking.time}
-📍 *من:* ${booking.from}
-📍 *إلى:* ${booking.to}
-${booking.notes ? '📝 *ملاحظات:* ' + booking.notes : ''}
-🕐 *التاريخ:* ${booking.timestamp}`;
-
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/201098021426?text=${encodedMessage}`;
-            
-            // فتح WhatsApp بالرسالة
+            const whatsappUrl = `https://wa.me/201098021426?text=${buildWhatsAppMessage(bookingData)}`;
             window.open(whatsappUrl, '_blank');
-        }
 
-        function showConfirmation() {
-            confirmationMessage.style.display = 'block';
-            confirmationMessage.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        document.getElementById('phone').addEventListener('input', function () {
-            this.value = this.value.replace(/[^\d]/g, '');
+            document.getElementById('confirmationMessage').style.display = 'block';
+            document.getElementById('bookingForm').reset();
         });
-
-        console.log('✅ موقع رحلة - تم التحميل بنجاح!');
     </script>
 </body>
 </html>
