@@ -359,6 +359,11 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
+        .submit-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
         .confirmation-message {
             background: #d4edda;
             border: 2px solid #28a745;
@@ -372,6 +377,33 @@
         .confirmation-message h3 {
             margin-bottom: 0.5rem;
             font-size: 1.5rem;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            border: 2px solid #f5c6cb;
+            color: #721c24;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
         /* ===== Contact Section ===== */
@@ -579,7 +611,6 @@
     </style>
 </head>
 <body dir="rtl">
-    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
             <div class="logo">
@@ -592,7 +623,7 @@
                 <li><a href="#booking">احجز الآن</a></li>
                 <li><a href="#contact">اتصل بنا</a></li>
             </ul>
-            <button class="menu-toggle">
+            <button class="menu-toggle" aria-label="القائمة">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -600,7 +631,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h2>خدمات توصيل سريعة وآمنة</h2>
@@ -612,18 +642,14 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
             <h2>خدماتنا المميزة</h2>
             <p class="section-subtitle">خدمات متنوعة لجميع احتياجات التوصيل</p>
             
             <div class="services-grid">
-                <!-- Service 1 -->
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-motorcycle"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-motorcycle"></i></div>
                     <h3>دراجات نارية</h3>
                     <p>توصيل سريع ومرن للطرود الصغيرة والوثائق بسرعة قصوى</p>
                     <ul class="features">
@@ -633,11 +659,8 @@
                     </ul>
                 </div>
 
-                <!-- Service 2 -->
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-car"></i></div>
                     <h3>سيارات توصيل عادية</h3>
                     <p>راحة وأمان للعميل مع توصيل احترافي وسريع</p>
                     <ul class="features">
@@ -647,11 +670,8 @@
                     </ul>
                 </div>
 
-                <!-- Service 3 -->
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-van-shuttle"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-van-shuttle"></i></div>
                     <h3>ربع نقل</h3>
                     <p>نقل البضائع الخفيفة والأثاث الصغير بأمان</p>
                     <ul class="features">
@@ -661,11 +681,8 @@
                     </ul>
                 </div>
 
-                <!-- Service 4 -->
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-truck-moving"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-truck-moving"></i></div>
                     <h3>نص نقل</h3>
                     <p>نقل متوسط للمتاع والأثاث والبضائع الثقيلة</p>
                     <ul class="features">
@@ -675,11 +692,8 @@
                     </ul>
                 </div>
 
-                <!-- Service 5 -->
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-pallet"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-pallet"></i></div>
                     <h3>نقل ثقيل</h3>
                     <p>نقل شامل للبضائع الثقيلة جداً والمشاريع الكبرى</p>
                     <ul class="features">
@@ -689,11 +703,8 @@
                     </ul>
                 </div>
 
-                <!-- Service 6 -->
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-bicycle"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-bicycle"></i></div>
                     <h3>دراجات عادية</h3>
                     <p>خدمة اقتصادية صديقة للبيئة للتوصيل المحلي</p>
                     <ul class="features">
@@ -706,14 +717,12 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <h2>عن شركة رحلة</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>شركة رحلة هي رائدة في مجال خدمات التوصيل والنقل السريع. نقدم مجموعة شاملة من الخدمات لتلبية جميع احتياجاتك.</p>
-                    
+                    <p>شركة رحلة هي رائدة في مجال خدمات التوصيل والنقل السريع. نقدم مجموعة شاملة من الخدمات لتلبية جميع احتياجاتك بكفاءة واحترافية عالية.</p>
                     <h3>مميزاتنا:</h3>
                     <ul class="about-list">
                         <li><i class="fas fa-check-circle"></i> سرعة توصيل فائقة تصل لأقل من ساعة</li>
@@ -725,28 +734,15 @@
                     </ul>
                 </div>
                 <div class="about-stats">
-                    <div class="stat">
-                        <h4>5000+</h4>
-                        <p>عملية توصيل ناجحة</p>
-                    </div>
-                    <div class="stat">
-                        <h4>2000+</h4>
-                        <p>عميل راضي</p>
-                    </div>
-                    <div class="stat">
-                        <h4>100+</h4>
-                        <p>سائق احترافي</p>
-                    </div>
-                    <div class="stat">
-                        <h4>24/7</h4>
-                        <p>خدمة مستمرة</p>
-                    </div>
+                    <div class="stat"><h4>5000+</h4><p>عملية توصيل ناجحة</p></div>
+                    <div class="stat"><h4>2000+</h4><p>عميل را��ي</p></div>
+                    <div class="stat"><h4>100+</h4><p>سائق احترافي</p></div>
+                    <div class="stat"><h4>24/7</h4><p>خدمة مستمرة</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Booking Section -->
     <section id="booking" class="booking">
         <div class="container">
             <h2>احجز خدمتك الآن</h2>
@@ -804,17 +800,22 @@
                     </div>
                 </div>
 
-                <button type="submit" class="submit-button">تأكيد الحجز</button>
+                <button type="submit" class="submit-button" id="submitBtn">تأكيد الحجز</button>
             </form>
 
             <div id="confirmationMessage" class="confirmation-message" style="display: none;">
                 <h3>✓ تم استلام طلبك بنجاح!</h3>
                 <p>سيتصل بك السائق قريباً جداً</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;">تم إرسال إشعار WhatsApp للإدارة</p>
+            </div>
+
+            <div id="errorMessage" class="error-message">
+                <h3>⚠ حدث خطأ!</h3>
+                <p id="errorText"></p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <h2>اتصل بنا</h2>
@@ -852,7 +853,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2024 شركة رحلة. جميع الحقوق محفوظة.</p>
@@ -866,7 +866,8 @@
     </footer>
 
     <script>
-        // ===== Mobile Menu Toggle =====
+        const OWNER_PHONE = '201098021426';
+
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
 
@@ -874,86 +875,145 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close menu when a link is clicked
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
         });
 
-        // ===== Smooth Scroll to Booking Section =====
         function scrollToBooking() {
             const bookingSection = document.getElementById('booking');
             bookingSection.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // ===== Form Handling =====
         const bookingForm = document.getElementById('bookingForm');
         const confirmationMessage = document.getElementById('confirmationMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        const submitBtn = document.getElementById('submitBtn');
 
-        bookingForm.addEventListener('submit', (e) => {
+        bookingForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            // Get form values
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
             const service = document.getElementById('service').value;
             const time = document.getElementById('time').value;
-            const from = document.getElementById('from').value;
-            const to = document.getElementById('to').value;
-            const notes = document.getElementById('notes').value;
+            const from = document.getElementById('from').value.trim();
+            const to = document.getElementById('to').value.trim();
+            const notes = document.getElementById('notes').value.trim();
 
-            // Validate form
             if (!name || !phone || !service || !time || !from || !to) {
-                alert('الرجاء ملء جميع الحقول المطلوبة');
+                showError('الرجاء ملء جميع الحقول المطلوبة');
                 return;
             }
 
-            // Create booking object
             const booking = {
-                name: name,
-                phone: phone,
-                service: service,
-                time: time,
-                from: from,
-                to: to,
-                notes: notes,
+                name,
+                phone,
+                service,
+                time,
+                from,
+                to,
+                notes,
                 timestamp: new Date().toISOString()
             };
 
-            // Save to localStorage (for demonstration)
-            saveBooking(booking);
+            submitBtn.disabled = true;
+            const originalText = submitBtn.textContent;
+            submitBtn.innerHTML = '<span class="spinner"></span>جاري الإرسال...';
 
-            // Show confirmation message
-            showConfirmation();
-
-            // Reset form
-            bookingForm.reset();
-
-            // Hide confirmation after 5 seconds
-            setTimeout(() => {
-                confirmationMessage.style.display = 'none';
-            }, 5000);
+            try {
+                saveBooking(booking);
+                await sendWhatsAppNotification(booking);
+                showConfirmation();
+                bookingForm.reset();
+                setTimeout(() => {
+                    confirmationMessage.style.display = 'none';
+                }, 5000);
+            } catch (error) {
+                console.error('خطأ:', error);
+                showError(error.message || 'حدث خطأ في إرسال الطلب. يرجى المحاولة مجددا');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
         });
 
-        // Save booking to localStorage
-        function saveBooking(booking) {
-            let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
-            bookings.push(booking);
-            localStorage.setItem('bookings', JSON.stringify(bookings));
-            console.log('تم حفظ الحجز:', booking);
+        async function sendWhatsAppNotification(booking) {
+            const serviceNames = {
+                motorcycle: 'دراجة نارية',
+                car: 'سيارة عادية',
+                quarter: 'ربع نقل',
+                half: 'نص نقل',
+                heavy: 'نقل ثقيل',
+                bicycle: 'دراجة عادية'
+            };
+
+            const message = `🚀 *طلب حجز جديد من رحلة*
+
+👤 *الاسم:* ${booking.name}
+📞 *الهاتف:* ${booking.phone}
+🚗 *الخدمة:* ${serviceNames[booking.service] || booking.service}
+⏰ *الوقت المفضل:* ${booking.time}
+📍 *من:* ${booking.from}
+📍 *إلى:* ${booking.to}
+📝 *ملاحظات:* ${booking.notes || 'لا توجد ملاحظات'}
+🕐 *الوقت:* ${new Date(booking.timestamp).toLocaleString('ar-EG')}`;
+
+            try {
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappLink = `https://wa.me/${OWNER_PHONE}?text=${encodedMessage}`;
+                window.open(whatsappLink, '_blank');
+                await sendViaWebhook(booking, message);
+            } catch (error) {
+                console.error('خطأ في إرسال WhatsApp:', error);
+                throw new Error('تم حفظ الطلب لكن حدث خطأ في الإشعار');
+            }
         }
 
-        // Show confirmation message
+        async function sendViaWebhook(booking, message) {
+            try {
+                const response = await fetch('/api/send-whatsapp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        phone: OWNER_PHONE,
+                        message,
+                        booking
+                    })
+                });
+
+                if (!response.ok) {
+                    console.log('تنبيه WhatsApp: تم حفظ الطلب محليا');
+                }
+            } catch (error) {
+                console.log('تنبيه WhatsApp: تم حفظ الطلب محليا، سيتم الإرسال لاحقا');
+            }
+        }
+
+        function saveBooking(booking) {
+            const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+            bookings.push(booking);
+            localStorage.setItem('bookings', JSON.stringify(bookings));
+            console.log('✅ تم حفظ الحجز:', booking);
+        }
+
         function showConfirmation() {
+            errorMessage.style.display = 'none';
             confirmationMessage.style.display = 'block';
             confirmationMessage.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // ===== Phone validation =====
-        document.getElementById('phone').addEventListener('input', function(e) {
-            // Remove non-numeric characters
+        function showError(message) {
+            confirmationMessage.style.display = 'none';
+            errorMessage.style.display = 'block';
+            document.getElementById('errorText').textContent = message;
+            errorMessage.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.getElementById('phone').addEventListener('input', function() {
             this.value = this.value.replace(/[^\d]/g, '');
+            if (this.value.length > 11) this.value = this.value.slice(0, 11);
         });
 
         console.log('✅ موقع رحلة - تم التحميل بنجاح!');
